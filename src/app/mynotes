@@ -1,0 +1,50 @@
+main.ts is the first app that starts and it bootstraps the Appmodule. angular 2 modules to strcuture more complex application.
+appmodule tells which part of application should work.
+ ngmodule decorator in this appmodule . declaration holds all components and directives 
+ imports- imports inbuilt modules.
+ providers - for services in app.
+ bootstrap- specifies which actually gets loaded first.
+
+ Then appcomponenet will take care of the directive used in index.html
+
+ WE used here bootstrap for more styling,
+ installed it using- npm install --save bootstrap
+ and add the file in the angular-cli.json class in the style section
+
+to create componenet in cli
+
+ng g c market 
+g= generate, c= componenet
+
+ng g c componenet --is --spec false
+is= inline styles( so no extra css file will be created)
+spec false = no spec.tss will be created
+
+declare and import the new componenet in app module
+-> cli automatically does it
+
+styles in a particluar componenet works for that particluar componenet
+For global styles, add styles in styles.css file.
+
+Service= it is basically a class which can be used by multiple
+componenet. It is put in shared folder.this is like a common respository for our code
+We created service and put our data and a model which initialise the service. service has array of collectables of collectable datatypedefine in model.
+
+marketcomponent is using the service in its constructor. as soon as this componenet gets loaded, constructor asks for the service defined.
+now we have to add service in the providers metadata componenet
+we can either do this in market componenet or in app module.
+in app module, the instance of service is avaialable to all the components
+while if we do it in marketcomponent, it is limited to marketcomponent only
+
+
+Routing->
+We have to make a separate file for rotuing our components in diff tab
+syntax as shown in routing.ts file.
+fullpath is used to match the complete string, otherwise the default path will 
+keep on redirectly everytime coz there is always null string present in between
+
+In header.html file, routerlink is used in place of <a> tags and routerLinkActive is 
+default angular property and active is bootstrap which highlits which tab is opened.
+
+in app.module, routing is importing and in the app.component.html, individual components are replaced with <router-outlet></router-outlet>
+ the bounded routing components will work in this.
